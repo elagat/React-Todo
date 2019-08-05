@@ -1,20 +1,20 @@
 import React from 'react';
 
-const todoData [
+const todoData = [
   {
     task: '1st Todo Item',
     id: Date.now(),
-    completed: false;
+    completed: false
   },
   {
     task: '2nd Todo Item',
     id: Date.now(),
-    completed: false;
+    completed: false
   },
   {
     task: '3rd Todo Item',
     id: Date.now(),
-    completed: false;
+    completed: false
   }
 ]
 
@@ -26,7 +26,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData = todoData;
+      todoData: todoData
     };
   }
 
