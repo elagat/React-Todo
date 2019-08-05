@@ -1,20 +1,21 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 const todosData = [
   {
     task: '1st Todo Item',
-    id: Date.now(),
+    id: 3401,
     completed: false
   },
   {
     task: '2nd Todo Item',
-    id: Date.now(),
+    id: 655762,
     completed: false
   },
   {
     task: '3rd Todo Item',
-    id: Date.now(),
+    id: 23943,
     completed: false
   }
 ]
@@ -34,7 +35,7 @@ class App extends React.Component {
   toggleTodo = id => {
     console.log(id);
     this.setState({
-      todos: this.state.todosData.map(todo => {
+      todos: this.state.todos.map(todo => {
         if (todo.id === id) {
           return {
             ...todo,
@@ -47,12 +48,26 @@ class App extends React.Component {
     });
   };
 
+  addTodo = todoTask => {
+    const newTodo = {
+      task: todoTask,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({
+      todos: [...this.state.todos, newTodo]
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TodoForm addTodo={this.addTodo}/>
         <TodoList
-          todos={this.state.todos}/>
+          todos={this.state.todos}
+          toggleTodo={this.toggleTodo}
+        />
       </div>
     );
   }
