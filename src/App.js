@@ -1,5 +1,23 @@
 import React from 'react';
 
+const todoData [
+  {
+    task: '1st Todo Item',
+    id: Date.now(),
+    completed: false;
+  },
+  {
+    task: '2nd Todo Item',
+    id: Date.now(),
+    completed: false;
+  },
+  {
+    task: '3rd Todo Item',
+    id: Date.now(),
+    completed: false;
+  }
+]
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -8,7 +26,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      value: ''
+      todoData = todoData;
     };
   }
 
