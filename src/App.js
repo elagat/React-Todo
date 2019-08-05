@@ -59,6 +59,12 @@ class App extends React.Component {
     })
   }
 
+  clear = () => {
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
+    })
+  }
+
   render() {
     return (
       <div>
@@ -67,6 +73,7 @@ class App extends React.Component {
         <TodoList
           todos={this.state.todos}
           toggleTodo={this.toggleTodo}
+          clear={this.clear}
         />
       </div>
     );
