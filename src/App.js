@@ -1,6 +1,7 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList';
 
-const todoData = [
+const todosData = [
   {
     task: '1st Todo Item',
     id: Date.now(),
@@ -26,21 +27,21 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoData: todoData
+      todos: todosData
     };
   }
 
-  toggleItem = id => {
+  toggleTodo = id => {
     console.log(id);
     this.setState({
-      todoData: this.state.todoData.map(item => {
-        if (item.id === id) {
+      todos: this.state.todosData.map(todo => {
+        if (todo.id === id) {
           return {
-            ...item,
-            completed: !item.completed
+            ...todo,
+            completed: !todo.completed
           };
         } else {
-          return item;
+          return todo;
         }
       })
     });
@@ -50,7 +51,8 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList />
+        <TodoList
+          todos={this.state.todos}/>
       </div>
     );
   }
